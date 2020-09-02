@@ -41,11 +41,46 @@
 
 #数组和元组的操作是一模一样的
 #数组和元组的区别：元组不可以修改；数组可以修改
-a = [1,1,1,3,5,"haha","haha"]
-print(a.index(1))
-print(a.count(1))
-a.append("插入的内容")
-print(a)
-a.extend("1111")
-print(a)
+# a = [1,1,1,3,5,"haha","haha"]
+# print(a.index(1))
+# print(a.count(1))
+# a.append("插入的内容")
+# print(a)
+# a.extend("1111")
+# print(a)
+# a.insert(0,"wyt")
+# print(a)
+# # a.sort()
+# # print(a)
+# a.remove(5)
+# print(a)
 
+#字典没有下标的概念
+# a = {
+#     "name":"wyt",
+#     "age":19,
+#     "address":"fujian",
+#     "info":{
+#         "boyfrined":["one","two","three"],
+#         "girlfriend":(1,2,3,4)
+#        },
+# }
+# print(a["info"])
+# print(a.get("info1"))
+# print(list(a.keys()))
+# print(list(a.values()))
+# print(a.items())
+# a.update(name1 = "wyt1")
+# print(a)
+# x = a.pop("name1")
+# print(a)
+# a["name2"] = "wyt2"
+# a["name1"] = "wyt11"
+# print(a)
+
+#通过python实现一个自动录入成绩的程序，输入学生的名字和成绩，然后成对的储存到变量中。
+# 输入结束后，打印出结果。
+sName = input("请输入学生的姓名：")
+sScore = int(input("请输入学生的成绩："))
+sNameScore = {sName:sScore}
+print(sNameScore)
