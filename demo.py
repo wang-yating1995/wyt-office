@@ -172,26 +172,56 @@ for循环是通过遍历的方式实现的
 7.现在有一堆成绩，请把及格的和不及格的分别放到不同的数组中。
 数据如下：[{"tom":98,"king":56,"lili":75}]
 '''
-score = [{"tom":98,"king":56,"lili":75}]
-scorepass = [{}]
-scorefail = [{}]
-sdict = score[0]
-for i in score[0]:
-    if score[0][i] >= 60:
-        scorepass[0][i] = score[0][i]
-    else:
-        scorefail[0][i] = score[0][i]
-print(scorepass)
-print(scorefail)
-'''
-8.使用python的print，模拟一个红绿灯的功能
-'''
-redgree = {"红灯":30,"绿灯":15,"黄灯":5}
-for i in redgree:
-    for j in range(redgree[i],0,-1):
-        print(i,"还有",j,"秒")
+# score = [{"tom":98,"king":56,"lili":75}]
+# scorepass = [{}]
+# scorefail = [{}]
+# sdict = score[0]
+# for i in score[0]:
+#     if score[0][i] >= 60:
+#         scorepass[0][i] = score[0][i]
+#     else:
+#         scorefail[0][i] = score[0][i]
+# print("合格的数据为：{}".format(scorepass))
+# print("不合格的数据为：{}".format(scorefail))
+# '''
+# 8.使用python的print，模拟一个红绿灯的功能
+# '''
+# import time
+# redgreen = {"红灯":35,"黄灯":5,"绿灯":20}
+# while True:
+#     for i in redgreen:
+#         for j in range(redgreen[i],0,-1):
+#             print(i,"还有",j,"秒")
+#             time.sleep(1)    
+        
 
 '''
 9.实现一个注册功能，要求账号5-8位，并且小写字母开头，不允许符号，仅小写字母和数字组成。
 密码8-12位，并且密码必须包含3种字符串，比如aaa123!
 '''
+import re
+firstletter = re.compile("^[a-z]")
+numletter = re.compile("[0-9]")
+lowletter = re.compile("[a-z]")
+wrongletter = re.compile("[_A-Z\W]")
+fuhao = re.compile("[_\W]")
+user = input("请输入您的账号：")
+password = input("请输入密码：")
+if 5 <= len(user) and len(user) <= 8:
+    # print("")
+    if firstletter.search(user) == None:
+        print("请输入小写字母开头的账号！")
+    elif wrongletter.search(user) != None:
+        print("请输入5-8位仅小写字母和数字组成的账号！")
+    elif numletter.search(user) == None or lowletter.search == None:
+        print("请输入5-8位仅小写字母和数字组成的账号！")
+    else:
+        if len(password) >= 8 and len(password) <= 12:
+            if numletter.search(password) == None or lowletter.search(password) == None or fuhao.search(password) == None:
+                print("密码必须包含3种字符串！")
+            else:
+                print("登录成功！")
+        else:
+            print("请输入8-12位密码！")
+else:
+    print("请输入5-8位账号！")
